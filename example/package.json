@@ -1,0 +1,26 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf .parcel-cache/",
+    "start": "npm run clean && parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "alias": {
+    "react": "../node_modules/react",
+    "react-dom": "../node_modules/react-dom"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.43",
+    "@types/react-dom": "^17.0.14",
+    "parcel": "^2.4.0",
+    "typescript": "^4.6.3"
+  }
+
+}
