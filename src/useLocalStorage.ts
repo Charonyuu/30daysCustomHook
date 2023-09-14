@@ -3,9 +3,18 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
   const readInitValue = useCallback(() => {
     try {
       const item = localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
+      if (!item) {
+        return initialValue;
+      }
+      try {
+        // 嘗試把item變成JSON解析
+        return JSON.parse(item);
+      } catch (e) {
+        // 如果只是純字串則回傳
+        return item;
+      }
     } catch (err) {
-      console.log(err);
+      console.error("Error reading from localStorage:", err);
       return initialValue;
     }
   }, [key, initialValue]);
@@ -15,10 +24,7 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
       const valueToStore =
         value instanceof Function ? value(storeState) : value;
       setStoreState(valueToStore);
-      // const valueToString =
-      //   typeof valueToStore === "string"
-      //     ? valueToStore
-      //     : JSON.stringify(valueToStore);
+      // const valueToString = JSON.stringify(valueToStore);
       // localStorage.setItem(key, valueToString);
       localStorage.setItem(key, JSON.stringify(valueToStore));
     } catch (error) {

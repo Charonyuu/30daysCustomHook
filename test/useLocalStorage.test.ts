@@ -10,7 +10,7 @@ class LocalStorageMock {
   }
 
   setItem<T>(key: string, value: T) {
-    this.store[key] = JSON.stringify(value);
+    this.store[key] = String(value);
   }
 
   removeItem(key: string) {
@@ -70,14 +70,14 @@ describe("useLocalStorage", () => {
   });
 
   it("should handle functions as new value", () => {
-    const { result } = renderHook(() => useLocalStorage("count", 1));
+    const { result } = renderHook(() => useLocalStorage("test", "default"));
 
     act(() => {
-      result.current[1]((prev) => prev + 1);
+      result.current[1]((prev) => "new_" + prev);
     });
 
-    expect(result.current[0]).toBe(2);
-    expect(JSON.parse(localStorageMock.getItem("count")!)).toBe("2");
+    expect(result.current[0]).toBe("new_default");
+    expect(JSON.parse(localStorageMock.getItem("test")!)).toBe("new_default");
   });
 
 });
