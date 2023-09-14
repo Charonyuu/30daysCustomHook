@@ -9,8 +9,7 @@ export default function LocalStorage() {
             {theme}
             <button onClick={() => setTheme("light")}>Change To Light</button>
             <button onClick={() => localStorage.setItem("theme", "light")}>Pure LocalStorage SetItem Change To Light</button>
-
-            <button onClick={() => localStorage.setItem("count", "0")}>Pure LocalStorage SetItem Change To Light</button>
+            <button onClick={() => localStorage.clear()}>Pure LocalStorage clear</button>
         </div>
     )
 }

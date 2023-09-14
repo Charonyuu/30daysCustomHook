@@ -10,7 +10,7 @@ class LocalStorageMock {
   }
 
   setItem<T>(key: string, value: T) {
-    this.store[key] = String(value);
+    this.store[key] = value as unknown as string;
   }
 
   removeItem(key: string) {
