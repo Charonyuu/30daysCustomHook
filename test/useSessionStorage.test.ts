@@ -14,6 +14,19 @@ const mockSessionStorage = {
 Object.defineProperty(global, "sessionStorage", { value: mockSessionStorage });
 
 describe("useSessionStorage custom hook", () => {
+  let errorSpy: jest.SpyInstance;
+
+  beforeAll(() => {
+    // 在所有測試運行之前，偽裝 console.error
+    errorSpy = jest.spyOn(console, "error");
+    errorSpy.mockImplementation(() => {});
+  });
+
+  afterAll(() => {
+    // 在所有測試運行完畢後，還原 console.error 的原始實現
+    errorSpy.mockRestore();
+  });
+  
   // 清除模擬函數的調用信息
   afterEach(() => {
     (sessionStorage.getItem as jest.Mock).mockClear();
