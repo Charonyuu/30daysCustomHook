@@ -1,7 +1,7 @@
 import * as React from 'react';
 import LocalStorage from './localStorage';
 import FetchData from './fetchData';
-
+import OutsideClickSample from './OutsideClickSample'
 export default function App() {
 
 
@@ -9,6 +9,7 @@ export default function App() {
         <div>
             <LocalStorage />
             <FetchData />
+            <OutsideClickSample />
         </div>
     )
 }

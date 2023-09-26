@@ -7,4 +7,3 @@ export { useWindowSize } from "./useWindowSize";
 export { useTimeout } from "./useTimeout";
 export { useDebouncedCallback } from "./useDebounce";
 export { useOutsideClick } from "./useOutsideClick";
-export { useCopyToClipboard } from "./useCopyToClip";
