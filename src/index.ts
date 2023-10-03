@@ -8,3 +8,6 @@ export { useTimeout } from "./useTimeout";
 export { useDebouncedCallback } from "./useDebounce";
 export { useOutsideClick } from "./useOutsideClick";
 export { useCopyToClipboard } from "./useCopyToClip";
+export { useThrottle } from "./useThrottle";
+export { useUploadProgress } from "./useAxiosProgress";
+export { useIntersectionObserver } from "./useIntersectionObserver";
