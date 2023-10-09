@@ -53,6 +53,5 @@ describe("useUploadProgress hook", () => {
          "Error: Error uploading file"
        );
     });
-
   });
 });
