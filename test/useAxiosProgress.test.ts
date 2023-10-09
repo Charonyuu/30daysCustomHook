@@ -35,6 +35,8 @@ describe("useUploadProgress hook", () => {
       type: "text/plain",
     });
 
+      const consoleErrorSpy = jest.spyOn(console, "error");
+      consoleErrorSpy.mockImplementation(() => {});
     // 設定 axios.post 的 mock 實現來拋出錯誤
     mockedAxios.post.mockRejectedValue(new Error("Error uploading file"));
 
@@ -46,6 +48,10 @@ describe("useUploadProgress hook", () => {
 
     await waitFor(() => {
       expect(result.current.progress).toBe(0);
+       expect(consoleErrorSpy).toHaveBeenCalledWith(
+         "Error uploading file:",
+         "Error: Error uploading file"
+       );
     });
 
   });

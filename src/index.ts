@@ -11,3 +11,4 @@ export { useCopyToClipboard } from "./useCopyToClip";
 export { useThrottle } from "./useThrottle";
 export { useUploadProgress } from "./useAxiosProgress";
 export { useIntersectionObserver } from "./useIntersectionObserver";
+export { useInterval } from "./useInterval"
